@@ -27,7 +27,7 @@ function App() {
                 </tr>
             </thead>
             <tbody>
-                {coffeList.map((coffee) => (
+                {coffeeList.map((coffee) => (
                     <tr key={coffee.id}>
                         <td>{coffee.id}</td>
                         <td>{coffee.name}</td>
