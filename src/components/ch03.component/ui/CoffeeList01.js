@@ -8,30 +8,42 @@ function App() {
         { id: 5, name: "바닐라 라떼", price: 8000, description: "스팀밀크에 바닐라 시럽을 더해서 만든 커피 음료입니다. 부드러운 스팀밀크와 달콤한 바닐라 시럽이 조화를 이루며, 쓴 커피 향을 중화시켜 부드러운 맛을 느낄 수 있습니다." }
     ];
 
-    //table 전체를 상수 MyTable 에 담기
-    const trList = coffeeList.map((coffee) => (
-        <tr key={coffee.id}>
-            <td>{coffee.id}</td>
-            <td>{coffee.name}</td>
-            <td>{coffee.price}</td>
-            <td>{coffee.description}</td>
-        </tr>
-    ));
+    // 가격에 따른 코멘트 현황
+    const getComment = (price) => {
+        if (price < 5000) return '저렴';
+        if (price < 7000) return '보통';
+        return '비쌈';
+    };
 
-    return (
+    const CoffeeTable = (
         <table border="1">
             <thead>
                 <tr>
                     <th>아이디</th>
                     <th>이름</th>
-                    <th>이미지</th>
+                    <th>단가</th>
+                    <th>코멘트</th>
                     <th>세부 설명</th>
                 </tr>
             </thead>
             <tbody>
-                {trList}
+                {coffeList.map((coffee) => (
+                    <tr key={coffee.id}>
+                        <td>{coffee.id}</td>
+                        <td>{coffee.name}</td>
+                        <td>{coffee.price.toLocaleString()}원</td>
+                        <td>{getComment(coffee.price)}</td>
+                        <td>{coffee.description}</td>
+                    </tr>
+                ))}
             </tbody>
         </table>
+    );
+
+    return (
+        <div>
+            {CoffeeTable}
+        </div>
     );
 }
 
