@@ -1,5 +1,5 @@
-import Board from './ui/BoardList02';
-import Member from './ui/MemberList02.js';
+import Board from './ui/BoardList01';
+import Member from './ui/MemberList01';
 
 function App() {
     console.log('샘플');
