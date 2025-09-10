@@ -48,6 +48,13 @@ export const menuData = [
             { path: '/use_effect_02', label: '이펙트 실습 02' },
             { path: '/use_effect_03', label: '이펙트 실습 03' },
         ]
-    }
+    },
+    {
+        chapter: "ch06. IT Cafe",
+        items: [
+            { path: '/coffee_bread_01', label: 'IT Cafe 01' },
+            { path: '/coffee_bread_02', label: 'IT Cafe 02' },
+        ]
+    },
     //여기에 4장, 5장... 내용을 계속 추가하면 됩니다.
 ];
