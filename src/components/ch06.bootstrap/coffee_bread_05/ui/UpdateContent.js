@@ -44,7 +44,7 @@ function App({ product, onSubmitUpdate, categories }) {
     const categoryOptions = categories.map((cate, index) =>
         /* cate 는 카테고리 1개를 의미하는 변수입니다. */
         /* 파일 CreateCategory.js 를 참조하여 코딩하도록 합니다. */
-        <option key={index} value={cate.english}>{cate.korean}</option>
+        <option key={index} value={cate.english} selected={formData.category === cate.english}>{cate.korean}</option>
     );
 
 
@@ -69,8 +69,8 @@ function App({ product, onSubmitUpdate, categories }) {
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">카테고리</InputGroup.Text>
-                    <Form.Select name="category">
-                        <option value="-" onChange={InputChange}>-- 카테고리를 선택해 주세요.</option>
+                    <Form.Select name="category" onChange={InputChange}>
+                        <option value="-">-- 카테고리를 선택해 주세요.</option>
                         {categoryOptions}
                     </Form.Select>
                 </InputGroup>

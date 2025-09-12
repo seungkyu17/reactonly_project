@@ -15,7 +15,7 @@ function App({ contents, onClickToContent, categories }) {
                 {contents.map((item, index) => {
                     /* find 함수를 사용하여 매칭되는 카테고리를 찾습니다. */
                     const match = categories.find((cate) => {
-                        console.log(`cate.english : ${cate.english}, item.category : ${item.category}`)
+                        //console.log(`cate.english : ${cate.english}, item.category : ${item.category}`)
                         return cate.english === item.category;
                     });
 

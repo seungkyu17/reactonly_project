@@ -9,13 +9,13 @@ function App({ mode, product, onSubmitInsert, onSubmitUpdate, onSubmitCategoryAd
 
     const onSwitchInsert = (formData) => {
         console.log(`등록 버튼 누름(Switcher)`);
-        onSwitchInsert(formData); //넘어온 폼 정보를 main 파일로 넘김
+        onSubmitInsert(formData); //넘어온 폼 정보를 main 파일로 넘김
 
     }
 
     const onSwitchUpdate = (formData) => {
         console.log(`수정 버튼 누름(Switcher)`);
-        onSwitchUpdate(formData); //수정된 폼 정보를 main 파일로 넘김
+        onSubmitUpdate(formData); //수정된 폼 정보를 main 파일로 넘김
 
     }
 
