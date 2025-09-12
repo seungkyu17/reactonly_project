@@ -13,7 +13,7 @@ import { useState } from "react";
 4. id 항목은 사용자에게 보여 주되, 읽기 전용으로 처리하면 됩니다.
     가짜는 읽기 전용, 진짜 정보는 type="hidden" 으로 처리합니다. */
 
-function App({ product, onSubmitUpdate }) {
+function App({ product, onSubmitUpdate, categories }) {
     //코드에서 반복적인 단어는 변수로 만들어 JSX 문법으로 처리하세요.
     const comment = '수정';
 
@@ -41,6 +41,13 @@ function App({ product, onSubmitUpdate }) {
         });
     }
 
+    const categoryOptions = categories.map((cate, index) =>
+        /* cate 는 카테고리 1개를 의미하는 변수입니다. */
+        /* 파일 CreateCategory.js 를 참조하여 코딩하도록 합니다. */
+        <option key={index} value={cate.english}>{cate.korean}</option>
+    );
+
+
     return (
         <div>
             <h2>상품 {comment}</h2>
@@ -64,8 +71,7 @@ function App({ product, onSubmitUpdate }) {
                     <InputGroup.Text className="input-group-text">카테고리</InputGroup.Text>
                     <Form.Select name="category">
                         <option value="-" onChange={InputChange}>-- 카테고리를 선택해 주세요.</option>
-                        <option value="bread" selected={formData.category === 'bread'} onChange={InputChange}>빵</option>
-                        <option value="beverage" selected={formData.category === 'beverage'} onChange={InputChange}>음료수</option>
+                        {categoryOptions}
                     </Form.Select>
                 </InputGroup>
                 <InputGroup className="custom-input-group">
@@ -81,7 +87,7 @@ function App({ product, onSubmitUpdate }) {
                     <Form.Control as="textarea" name="description" onChange={InputChange} value={formData.description}></Form.Control>
                 </InputGroup>
                 <div className="d-grid gap-2">
-                    <Button type="submit">{comment}</Button>
+                    <Button variant="primary" type="submit">{comment}</Button>
                 </div>
             </form>
         </div>

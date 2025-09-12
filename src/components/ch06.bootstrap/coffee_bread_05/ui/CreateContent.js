@@ -2,7 +2,7 @@ import { Button, Form, InputGroup } from "react-bootstrap";
 
 import './../css/FormStyle.css';
 
-function App({ onSubmitInsert }) {
+function App({ onSubmitInsert, categories }) {
     //코드에서 반복적인 단어는 변수로 만들어 JSX 문법으로 처리하세요.
     const comment = '등록';
 
@@ -13,8 +13,13 @@ function App({ onSubmitInsert }) {
         onSubmitInsert(formData);
     }
 
-    console.log('샘플');
-
+    /* categories 배열을 이용하여 동적 콤보 박스 만들기 */
+    const categoryOptions = categories.map((cate, index) =>
+        /* cate 는 카테고리 1개를 의미하는 변수입니다. */
+        /* 파일 CreateCategory.js 를 참조하여 코딩하도록 합니다. */
+        <option key={index} value={cate.english}>{cate.korean}</option>
+    );
+    //<option value="bread">빵</option>
     return (
         <div>
             <h2>상품 {comment}</h2>
@@ -29,10 +34,10 @@ function App({ onSubmitInsert }) {
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">카테고리</InputGroup.Text>
+                    {/* 양식의 카테고리 콤보 상자는 동적으로 생성되어야 합니다. */}
                     <Form.Select name="category">
                         <option value="-">-- 카테고리를 선택해 주세요.</option>
-                        <option value="bread">빵</option>
-                        <option value="beverage">음료수</option>
+                        {categoryOptions}
                     </Form.Select>
                 </InputGroup>
                 <InputGroup className="custom-input-group">

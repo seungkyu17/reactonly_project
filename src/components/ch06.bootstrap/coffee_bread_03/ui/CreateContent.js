@@ -46,7 +46,7 @@ function App({ onSubmitInsert }) {
                     <Form.Control as="textarea" name="description"></Form.Control>
                 </InputGroup>
                 <div className="d-grid gap-2">
-                    <Button type="submit">등록</Button>
+                    <Button variant="primary" type="submit">등록</Button>
                 </div>
             </form>
         </div>
